@@ -13,8 +13,9 @@ const preorder = root => {
   while(stack.length){
     let node = stack.pop();
     output.push(node.val);
-    if(node.left) stack.push(node.left);
     if(node.right) stack.push(node.right);
+    if(node.left) stack.push(node.left);
+    
   }
   return output;
 }
