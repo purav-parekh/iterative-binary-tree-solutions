@@ -1,0 +1,31 @@
+// 145. Binary Tree Postorder Traversal
+
+// Given the root of a binary tree, return the postorder traversal of its nodes' values.
+
+// iterative solution
+
+const postorder = root => {
+  if(!root) return [];
+  let output = []
+  let stack = [root]
+  while(stack.length) {
+    let node = stack.pop();
+    output.push(node.val);
+    if(node.left) stack.push(node.left);
+    if(node.right) stack.push(node.right);
+  }
+  return output.reverse();
+}
+
+// recursive solution
+
+const postorder = root => {
+  if(!root) return [];
+  let output = [];
+  const postorder = node => {
+    if(node.left) postorder(node.left);
+    if(node.right_ postorder(node.right);
+    output.push(node.val);
+  }
+  return output;
+}
