@@ -1,0 +1,33 @@
+// 144. Binary Tree Preorder Traversal
+
+
+// Given the root of a binary tree, return the preorder traversal of its nodes' values.
+
+
+// iterative solution
+
+const preorder = root => {
+  if(!root) return [];
+  let output = [];
+  let stack = [root];
+  while(stack.length){
+    let node = stack.pop();
+    output.push(node.val);
+    if(node.left) stack.push(node.left);
+    if(node.right) stack.push(node.right);
+  }
+  return output;
+}
+
+// recursive solution
+
+const preorder = root => {
+  if(!root) return [];
+  let output = [];
+  const preorder = node => {
+    output.push(node.val);
+    preorder(node.left);
+    preorder(node.right);
+  }
+  return output;
+}
