@@ -1,0 +1,13 @@
+// Depth First Search (DFS)
+
+const dfs = root => {
+  const stack = [root];
+  const dfsPrint = [];
+  while(stack.length){
+    const node = stack.pop();
+    dfs.push(node.val)
+    if(node.right) stack.push(node.right)
+    if(node.left) stack.push(node.left)
+  }
+  return dfsPrint
+}
