@@ -1,0 +1,15 @@
+// Find Bottom Left Tree Value
+
+// Given the root of a binary tree, return the leftmost value in the last row of the tree.
+
+const findLeft = root => {
+  if(!root) return null;
+  let q = [root];
+  let node = root;
+  while(q.length){
+    node = q.pop();
+    if(node.right) q.unshift(node.right);
+    if(node.left) q.unshift(node.left);
+  }
+  return node.val;
+}
